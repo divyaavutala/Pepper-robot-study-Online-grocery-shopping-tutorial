@@ -1,0 +1,99 @@
+ body{
+ font-family: "Roboto";
+ font-weight: 400;
+ background-color: #FFFFFF;
+
+}
+
+.welcome-text{
+ color: #EFD710;
+ text-align: center;
+
+}
+
+h1{
+font-size: 50px;
+background:  #0D5959;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.text-box{
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid green;
+  border-radius: 4px;
+  text-align:center;
+}
+
+.buttons{
+
+padding: 14px 40px;
+border-radius: 2px;
+text-decoration: none;
+display: inline-block;
+background:  #0D5959;
+color: white;
+font-size: 40px;
+border-radius: 25px;
+}
+
+
+.wrapper {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    margin-top: 50px;
+}
+
+.button {
+padding: 50px;
+}
+
+.wrapper-1{
+    text-align: center;
+    padding-top: 20px;
+}
+
+
+.next {
+  text-decoration: none;
+  display: inline-block;
+  padding: 30px 30px;
+  position:absolute;
+  bottom: 5%;
+  right:10%;
+  font-weight: bold;
+  background: #0D5959;
+  color: white;
+  font-size: 40px;
+  border-radius: 20px;
+}
+
+.options{
+  text-decoration: none;
+  display: inline-block;
+  justify-content: center;
+  padding: 30px 30px;
+  margin: 20px;
+  font-weight: bold;
+  background: #0D5959;
+  color: white;
+  font-size: 40px;
+  border-radius: 20px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.center-1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
