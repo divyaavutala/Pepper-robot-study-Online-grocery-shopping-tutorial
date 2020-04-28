@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="quiz-3e1dfb">
+ <names>
+  <name lang="en_US">Music_Quiz</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+  <language>fi_FI</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>fi_FI</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <nature>interactive</nature>
+   <names>
+    <name lang="en_US">Quiz</name>
+   </names>
+   <permissions/>
+  </behaviorContent>
+  <dialogContent topicName=" quiz_dlg enu:quiz_dlg_enu.top" typeVersion="1.0"/>
+ </contents>
+</package>

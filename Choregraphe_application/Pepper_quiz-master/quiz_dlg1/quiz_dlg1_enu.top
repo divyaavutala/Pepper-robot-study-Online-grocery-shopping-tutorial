@@ -1,0 +1,170 @@
+topic: ~quiz_dlg1()
+language: enu
+
+
+concept:(affirmation) [yes yeah yup sure]
+concept:(confirmation) [next done completed finished]
+concept:(answer_yes) ^rand[ok super yay "let's go"]
+concept:(denial) [no]
+concept:(yay) [true]
+concept:(false) [false]
+concept:(instructions) I will provide some step by step instructions and you will have to repeat the same thing on the website. After I have completed explaining a task, I will wait for you to do it on the website. Once you are done, you can say the words next or done and I will take us to the next one. 
+concept:(data) Any data you provide on my screen or website will not be stored. 
+concept:(continue)[continue next "next question"]
+concept:(more-info)["tell me more" "more info" info]
+
+#EXPLANATIONS 
+concept:(e1) Now let's start with the basics. To shop on any website, we will need to create an account with them. For this, you will need an email address and a password. 
+ \pau=500\ If you do not have an email address, you can create it by visiting services like gmail, yahoo etcetera. This is an example of how an email will look like. you don't have to remeber all this. when you register with a service and create a username, they give you the complete email address. 
+ \pau=500\ i am using colours to clearly explain each aspect of it.
+ \pau=500\ The red colour indicates the username you will create. This can be either your name or any other word. for example, pepper2020 or jane.doe. 
+\pau=500\The symbol in yellow is called at the rate. this is present in any email address.
+ \pau=500\ The word in green is where the service name is deisplayed. like gmail, yahoo etcetera.    
+
+\pau=500\finally, most of the emails end with a dot com. For the sake of this excerise, you can enter anything that looks like an email address. it doesn't have to be created. Are you okay so far?
+
+concept:(e2) Second comes the password. Every website has a few requirements for creating a password. I will use the example on my screen to demonstrate. Here are the basic rules that ensure your password has maximum security. following these rules to create a password will decrease te chance of getting hacked. 
+ \pau=500\ first,  your password should be more than 8 characters. It should have at least one uppercase letter.  
+ \pau=500\ second, your passowrd should have at least one lowercase letter
+ \pau=500\ third, your passowrd should have at least one number
+ \pau=500\ last but not least, your passowrd should have at least one special character. 
+ \pau=500\ now let's look at my example. pepper123 with a dollar sign. It is more than 8 characters and satisfies the first criteria. 
+\pau=500\ next is my acpital letter which is the letter p in green colour. you can get a capital letter by pressing the capslock button and typing the letter you want. when you want to go to lowercase, just turn the capslock button off. Here, my letters in yellow are my lowercase letters. 
+\pau=500\ next is the number. i have used one two and three and they are blue in colour. 
+\pau=500\ now the Last one, the special character. these are symbols like a question mark, percentage symbol etc. I am using a dollar symbol for mine and used the colour red to denote it. Most of these characters are associated to a number key. To type in a special character, hold the shift button and press the number key. Are you okay so far?
+
+
+concept:(e4)Now that you have a delivery slot and added at items to your cart, click the cart button on the top right corner and we can start our check out. I will take you through the payment process. \pau=500\ The first section is entering the billing address. you will have to enter your name and address. \pau=500\ If your card is registerd on the same address, please tick the box saying your shipping address is the same as the billing address. are you okay so far? 
+
+concept:(e5) We are almost there! the last one to fill out are the card details. This task will be based on your bank details. don't worry, anything you fill in the website will not be stored. But just to be safe, please do not use your original details for the task. 
+\pau=500\ first, incidate weather your card is a credit or debit card.if you are not familiar, This information should be indicated on your card along with a symbol. 
+\pau=500\ Second, enter your name as displayed on the card and the 16 digit card number. 
+\pau=500\ After that, enter your expiry date and cvv. A cvv is a 3 digit number that will be present on the back of your card. 
+\pau=500\ All these details will be present on your card. so make sure to keep it handy every time you make an online payment. 
+
+\pau=500\ I have some important information. There is always a risk of fraud when it comes to payments. To protect your self from this, do not disclose any of the above details to anyone. over phone or in person. 
+\pau=500\ If anyone has to send you money, they will need your account number and sort code but not the other details. 
+\pau=500\ has all of this been clear so far? 
+
+concept:(e6)congrats on successfully completing all the tasks. Shall we take a small quiz to make sure we learnt everything right?
+
+concept:(e7) finally, i hope you had a great time with me! i would love some feedback on hw i can improve. 
+
+#TASKS
+concept:(t1) Now go ahead and register on the website next to you.I have entered my details for reference. enter and email and create your own password. When you are done, say the words next, done or finished. and i will move on to the next one.  
+
+concept:(t2) After creating a password, the boxes you see are asking for your address. most groceries do this while registering so that they can check if they deliver to you. Please enter you address and phone number and click create account. After that say the word done or next. 
+
+concept:(t3)Once your account creation is successful, you will see the products in the grocery store. Please add milk to the cart and let me know when you are done. 
+
+concept:(t4)now that we have all the items we need, it's time to choose a time slot for our home delivery. please select the choose slot section on the right side of the menu. This will take you to the screen i am displaying. Time slots will be displayed along with their charge. Note that some grocery stores may charge you extra on top of that if the bill is less than a certain amount. Please select a time slot you like and click the select button. once you're done let me know by saying the word done. 
+
+concept:(t5)Good. Please fill the billing address section we just talked about. I have filled in my information for a reference. Once, you are done. Let me know and we can proceed to enter our card details. 
+
+concept:(t6)great,the final task, is to fill out the card details and say the word done when you have completed! 
+
+concept:(t7)first question, what is the symbol often used in an email address?  \pau=500\ please look at the options on my screen and answer with the alphabet. for example, option A, B or C.  
+concept:(t8)second question, what is the reason for using numbers and characters while creating a password?  \pau=500\ please look at the options on my screen and answer with the alphabet. for example, option A, B or C.
+concept:(t9)third one, what is meant by the billing address?  \pau=500\ please look at the options on my screen and answer with the alphabet. for example, option A, B or C.
+concept:(t10)last one, you can share card details like cvv as it safe to do so. is this true or false? 
+  
+u:(e:onStart) $html="en/welcome.html" ^gotoReactivate(intro)
+ 
+proposal: %intro Hey There, today I'm going to help you with shopping groceries online. Are you ready to learn? 
+    u1:(~affirmation) ~instructions ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+proposal: %start \pau=500\ ^gotoReactivate(next_q)
+
+proposal: %counter $orientation/asked=1
+
+
+#Task 1: register: email/password/address
+proposal: %question $html="en/email.html" ~e1
+    u1:(~affirmation) ^gotoReactivate(start) $mood=1
+    u1:(~denial) $onStopped=1
+
+
+proposal: %question $html="en/password.html" ~e2
+    
+    u1:(~confirmation) ~data ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+    
+
+proposal: %question $html="en/register.html" ~t1
+    u1:(~affirmation) ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+
+proposal: %question $html="en/address.html" ~t2
+    
+    u1:(~confirmation) ^gotoReactivate(start) $mood=1
+    u1:(~denial) $onStopped=1
+
+
+#task 2: add item
+proposal: %question $html="en/addItem.html" ~t3
+    
+    u1:(~confirmation) ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+
+#task 3: choose slot
+proposal: %question $html="en/deliveryInfo.html" ~t4
+    
+    u1:(~confirmation) ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+
+#task 4: payment 
+proposal: %question $html="en/payment.html" ~e4
+    u1:(~affirmation) ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+proposal: %question $html="en/payment.html" ~t5
+    
+    u1:(~confirmation) ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+    proposal: %question $html="en/payment2.html" ~e5
+    u1:(~affirmation) ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+proposal: %question $html="en/payment2.html" ~t6
+    
+    u1:(~confirmation) ^gotoReactivate(start) $mood=1
+    u1:(~denial) $onStopped=1
+
+
+    
+#quiz 
+proposal: %question $html="en/payment2.html" ~e6
+    u1:(~affirmation) ^gotoReactivate(start) $mood=1
+    u1:(~denial) $onStopped=1
+
+proposal: %question $html="en/quiz.html" ~t7
+    
+    u1:([option c, c, next])well done!  ^gotoReactivate(start) $orientation/answerRight=1 
+    u1:([false])  $onStopped=1
+
+    
+proposal: %question $html="en/quiz1.html" ~t8
+    
+    u1:([option b, b, next])well done!  ^gotoReactivate(start) $orientation/answerRight=1 
+    u1:([false])  $onStopped=1
+    
+proposal: %question $html="en/quiz2.html" ~t9
+    
+    u1:([option b, b, next])well done!  ^gotoReactivate(start) $orientation/answerRight=1 
+    u1:([false])  $onStopped=1
+    
+proposal: %question $html="en/quiz3.html" ~t10
+    
+    u1:([true]) oh no, you must never share your card details.  ^gotoReactivate(start) $orientation/answerRight=1 
+    u1:([false]) well done! $onStopped=1
+
+#feedback
+proposal: %question $html="en/feedback.html" ~e7
+    u1:(~affirmation) ^gotoReactivate(start) $mood=1
+    u1:(~denial) $onStopped=1

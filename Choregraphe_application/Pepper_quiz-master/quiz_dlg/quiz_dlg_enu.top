@@ -1,0 +1,196 @@
+topic: ~quiz_dlg()
+language: enu
+
+concept:(correct) \pau=500\ ^rand[^start(animations/Stand/Emotions/Positive/Confident_1) ^start(animations/Stand/Emotions/Positive/Optimistic_1) ^start(animations/Stand/Gestures/Yes_3) ^start(animations/Stand/Gestures/Yes_2) ^start(animations/Stand/Gestures/Yes_1) ^start(animations/Stand/Gestures/Joy_1) ^start(animations/Stand/Gestures/Enthusiastic_1)] ^rand[exactly right correct "spot on" "you're right" super] \pau=1000\
+concept:(wrong) \pau=500\ ^rand[^start(animations/Stand/Gestures/No_1) ^start(animations/Stand/BodyTalk/Thinking/ThinkingLoop_1) ^start(animations/Stand/Emotions/Negative/Anxious_1) ^start(animations/Stand/Waiting/HideHands_1) ^start(animations/Stand/Gestures/Reject_1) ^start(animations/Stand/Gestures/Desperate_3)] ^rand["not quite, the answer is" "this was a hard one, the answer is" "close, the answer is" "let's see the right answer, its"] \pau=1000\
+concept:(affirmation) [yes yeah yup sure]
+concept:(answer_yes) ^rand[ok super yay "let's go"]
+concept:(denial) [no]
+
+concept:(start_quiz) If you want to quit the quiz, just press the exit button on the top right corner of my tablet. Good luck!
+
+concept:(continue)[continue next "next question"]
+concept:(more-info)["tell me more" "more info" info]
+
+concept:(q1) What movie is this song used in?
+concept:(q2) Which character is this the theme for?
+concept:(q3) Which movie is this from?
+concept:(q4) What movie is this from?
+concept:(q5) Who sings this song?
+concept:(q6) What movie is this from?
+concept:(q7) Who sings this?
+concept:(q8) What movie is this from?
+concept:(q9) What TV show is this from?
+concept:(q10) What is this TV show?
+concept:(q11) What is the name of this TV show?
+concept:(q12) What is the name of this TV show?
+concept:(q13) What is the name of this TV show?
+concept:(q14) Who sings this song?
+concept:(q15) What is the name of this song?
+concept:(q16) Who sings this song?
+concept:(q17) Who sings this song?
+concept:(q18) What is the name of this song?
+concept:(q19) What is the name of this song?
+concept:(q20) Who sings this song?
+concept:(q21) Which band sings this song?
+concept:(q22) What is the name of this song?
+concept:(q23) Who sings this song?
+concept:(q24) What is the name of this song?
+concept:(q25) Which band sings this song?
+
+u:(e:onStart) $html="en/quiz-start-en.html" ^gotoReactivate(intro)
+ 
+proposal: %intro In this quiz, there are twenty-five rounds. In each round, fifteen seconds of a song will play. All you have to do is name the artist or the song! Are you ready to play?
+    u1:(~affirmation) ~start_quiz ^gotoReactivate(start)
+    u1:(~denial) $onStopped=1
+
+proposal: %start \pau=500\ The first question is ^gotoReactivate(next_q)
+
+proposal: %counter $orientation/asked=1
+
+u:(e:orientation/next) ^gotoReactivate(next)
+proposal: %next \pau=500\ Let's continue \pau=1000\ Next question ^gotoReactivate(next_q)
+
+proposal: %next_q ^gotoReactivate(q1)
+
+u:(e:orientation/allAsked) ^gotoReactivate(end)
+proposal: %end Thank you for playing
+    u1:([cheers thanks "bye bye" bye "see you" "thank you" finish]) $Orientation/Exit=1 
+    
+u:(e:orientation/answerContinue) ^gotoReactivate(counter)
+
+
+#Q1
+proposal: %q1 $html="en/quiz1.html" ~q1
+    u1:([answer is !Graduate])  ~wrong  $voice_ans="en/quiz1_ans.html" $orientation/answerWrong=1 ^gotoReactivate(counter)
+    u1:([Graduate])   ~correct  $voice_ans="en/quiz1_ans.html" $orientation/answerRight=1 ^gotoReactivate(counter)
+
+
+#Q2
+proposal: %question $html="en/quiz2.html" ~q2
+    u1:([answer is !"pink panther"])  ~wrong  $voice_ans="en/quiz2_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "pink panther"])   ~correct  $voice_ans="en/quiz2_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q3 
+proposal: %question $html="en/quiz3.html" ~q3
+    u1:([answer is !"mary poppins"])  ~wrong  $voice_ans="en/quiz3_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "mary poppins"])   ~correct  $voice_ans="en/quiz3_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q4
+proposal: %question $html="en/quiz4.html" ~q4
+    u1:([answer is !"breakfast at tiffanys"])  ~wrong  $voice_ans="en/quiz4_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "breakfast at tiffanys"])   ~correct  $voice_ans="en/quiz4_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+#Q5 
+proposal: %question $html="en/quiz5.html" ~q5
+    u1:([answer is !"gene kelly"])  ~wrong  $voice_ans="en/quiz5_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "gene kelly"])   ~correct  $voice_ans="en/quiz5_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q6
+proposal: %question $html="en/quiz6.html" ~q6
+    u1:([answer is !"ben hur"])  ~wrong  $voice_ans="en/quiz6_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "ben hur"])   ~correct  $voice_ans="en/quiz6_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q7
+proposal: %question $html="en/quiz7.html" ~q7
+    u1:([answer is !"judy garland"])  ~wrong  $voice_ans="en/quiz7_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "judy garland"])   ~correct  $voice_ans="en/quiz7_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q8
+proposal: %question $html="en/quiz8.html" ~q8
+    u1:([answer is !"gone with the wind"])  ~wrong  $voice_ans="en/quiz8_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "gone with the wind"])   ~correct  $voice_ans="en/quiz8_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q9
+proposal: %question $html="en/quiz9.html" ~q9
+    u1:([answer is !eastenders])  ~wrong  $voice_ans="en/quiz9_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is eastenders])   ~correct  $voice_ans="en/quiz9_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q10
+proposal: %question $html="en/quiz10.html" ~q10
+    u1:([answer is !"doctor who"])  ~wrong  $voice_ans="en/quiz10_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "doctor who"])   ~correct  $voice_ans="en/quiz10_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q11
+proposal: %question $html="en/quiz11.html" ~q11
+    u1:([answer is !"fawlty towers"])  ~wrong  $voice_ans="en/quiz11_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "fawlty towers"])   ~correct  $voice_ans="en/quiz11_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q12
+proposal: %question $html="en/quiz12.html" ~q12
+    u1:([answer is !"meet the flintstones"])  ~wrong  $voice_ans="en/quiz12_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "meet the flintstones"])   ~correct  $voice_ans="en/quiz12_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q13
+proposal: %question $html="en/quiz13.html" ~q13
+    u1:([answer is !"last of the summer wine"])  ~wrong  $voice_ans="en/quiz13_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "last of the summer wine"])   ~correct  $voice_ans="en/quiz13_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q14
+proposal: %question $html="en/quiz14.html" ~q14
+    u1:([answer is !"vera lynn"])  ~wrong  $voice_ans="en/quiz14_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "vera lynn"])   ~correct  $voice_ans="en/quiz14_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q15
+proposal: %question $html="en/quiz15.html" ~q15
+    u1:([answer is !"jailhouse rock"])  ~wrong  $voice_ans="en/quiz15_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "jailhouse rock"])   ~correct  $voice_ans="en/quiz15_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q16
+proposal: %question $html="en/quiz16.html" ~q16
+    u1:([answer is !"pat boone"])  ~wrong  $voice_ans="en/quiz16_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "pat boone"])   ~correct  $voice_ans="en/quiz16_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q17
+proposal: %question $html="en/quiz17.html" ~q17
+    u1:([answer is !"doris day"])  ~wrong  $voice_ans="en/quiz17_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "doris day"])   ~correct  $voice_ans="en/quiz17_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q18
+proposal: %question $html="en/quiz18.html" ~q18
+    u1:([answer is !"dream lover"])  ~wrong  $voice_ans="en/quiz18_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "dream lover"])   ~correct  $voice_ans="en/quiz18_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q19
+proposal: %question $html="en/quiz19.html" ~q19
+    u1:([answer is !"she loves you"])  ~wrong  $voice_ans="en/quiz19_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "she loves you"])   ~correct  $voice_ans="en/quiz19_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q20
+proposal: %question $html="en/quiz20.html" ~q20
+    u1:([answer is !kinks])  ~wrong  $voice_ans="en/quiz20_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is kinks])   ~correct  $voice_ans="en/quiz20_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+    u1:([answer is !"The kinks"])  ~wrong  $voice_ans="en/quiz20_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "The kinks"])   ~correct  $voice_ans="en/quiz20_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q21
+proposal: %question $html="en/quiz21.html" ~q21
+    u1:([answer is !"Beach boys"])  ~wrong  $voice_ans="en/quiz21_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "beach boys"])   ~correct  $voice_ans="en/quiz21_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+    u1:([answer is !"The beach boys"])  ~wrong  $voice_ans="en/quiz21_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "The beach boys"])   ~correct  $voice_ans="en/quiz21_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q22
+proposal: %question $html="en/quiz22.html" ~q22
+    u1:([answer is !"cant take my eyes off of you"])  ~wrong  $voice_ans="en/quiz22_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "cant take my eyes off of you"])   ~correct  $voice_ans="en/quiz22_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q23
+proposal: %question $html="en/quiz23.html" ~q23
+    u1:([answer is !"sonny and cher"])  ~wrong  $voice_ans="en/quiz23_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "sonny and cher"])   ~correct  $voice_ans="en/quiz23_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q24
+proposal: %question $html="en/quiz24.html" ~q24
+    u1:([answer is !"pretty woman"])  ~wrong  $voice_ans="en/quiz24_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "pretty woman"])   ~correct  $voice_ans="en/quiz24_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+    u1:([answer is !"Oh pretty woman"])  ~wrong  $voice_ans="en/quiz24_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "Oh pretty woman"])   ~correct  $voice_ans="en/quiz24_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+    u1:([answer is !"pretty women"])  ~wrong  $voice_ans="en/quiz24_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "pretty women"])   ~correct  $voice_ans="en/quiz24_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+    u1:([answer is !"Oh pretty women"])  ~wrong  $voice_ans="en/quiz24_ans.html" $orientation/answerWrong=1  ^gotoReactivate(counter)
+    u1:([answer is "Oh pretty women"])   ~correct  $voice_ans="en/quiz24_ans.html" $orientation/answerRight=1  ^gotoReactivate(counter)
+
+#Q25
+proposal: %question $html="en/quiz25.html" ~q25
+    u1:([answer is !"rolling stones"])  ~wrong  $voice_ans="en/quiz25_ans.html"   ^gotoReactivate(counter)
+    u1:([answer is "rolling stones"])   ~correct  $voice_ans="en/quiz25_ans.html"   ^gotoReactivate(counter)
